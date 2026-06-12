@@ -13,6 +13,13 @@ Explore data cleaning and exploratory analysis written in MySQL.
 
 ---
 
+### 📊 Excel Projects
+Bike Buyers Sales Dashboard — data cleaning, pivot tables, charts, and slicers.
+
+➡️ [View Excel Projects](./excel/)
+
+---
+
 ## 🛠️ Tools & Technologies
 
 | Tool       | Purpose                              |
