@@ -27,6 +27,13 @@ Seattle AirBnB Dashboard — interactive map, pricing trends, revenue by week, a
 
 ---
 
+### 📊 Power BI Projects
+Data Professional Survey Dashboard — salary trends, happiness scores, language preferences, and career insights from 630 respondents.
+
+➡️ [View Power BI Projects](./power%20bi/)
+
+---
+
 ## 🛠️ Tools & Technologies
 
 | Tool       | Purpose                              |
