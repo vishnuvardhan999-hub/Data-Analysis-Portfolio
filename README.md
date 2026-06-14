@@ -20,6 +20,13 @@ Bike Buyers Sales Dashboard — data cleaning, pivot tables, charts, and slicers
 
 ---
 
+### 📈 Tableau Projects
+Seattle AirBnB Dashboard — interactive map, pricing trends, revenue by week, and neighbourhood analysis.
+
+➡️ [View Tableau Projects](./tableau/)
+
+---
+
 ## 🛠️ Tools & Technologies
 
 | Tool       | Purpose                              |
