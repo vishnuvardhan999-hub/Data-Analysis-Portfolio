@@ -13,6 +13,24 @@
 		<meta name="description" content="Data Analyst Portfolio of Vishnu Vardhan — SQL, Excel, Tableau, Power BI projects." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Projects section smooth scroll target */
+			#projects { scroll-margin-top: 4em; }
+
+			/* Tag badges on project cards */
+			.project-tag {
+				display: inline-block;
+				background: #f56a6a;
+				color: #fff;
+				font-size: 0.65em;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				padding: 0.25em 0.75em;
+				border-radius: 2em;
+				margin-bottom: 0.6em;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -38,11 +56,12 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">Portfolio</a></li>
+							<li class="active"><a href="index.html">Home</a></li>
+							<li><a href="#projects" class="scrolly">Projects</a></li>
+							<li><a href="#footer" class="scrolly">Contact</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank" class="icon brands fa-github-alt"><span class="label">Portfolio Repo</span></a></li>
 						</ul>
 					</nav>
 
@@ -52,30 +71,34 @@
 						<!-- Featured Post — SQL Project -->
 							<article class="post featured">
 								<header class="major">
-									<span class="date">SQL &nbsp;|&nbsp; Data Cleaning &amp; EDA</span>
+									<span class="project-tag">SQL &nbsp;·&nbsp; Data Cleaning &amp; EDA</span>
 									<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank">Tech Layoffs<br />Data Cleaning &amp; Analysis</a></h2>
 									<p>Cleaned and analyzed a real-world dataset of global tech company layoffs using MySQL.<br />
 									Removed duplicates with <strong>ROW_NUMBER()</strong>, standardized messy fields, filled NULLs via self-joins,<br />
 									then ran exploratory analysis using CTEs, window functions, and <strong>DENSE_RANK()</strong><br />
 									to surface the top companies and monthly rolling totals.</p>
 								</header>
-								<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank" class="image main"><img src="images/pic01.jpg" alt="SQL Data Cleaning Project" /></a>
+								<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank" class="image main">
+									<img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&q=80" alt="SQL Data Cleaning — rows of data on screen" />
+								</a>
 								<ul class="actions special">
 									<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank" class="button large">View Project</a></li>
 								</ul>
 							</article>
 
-						<!-- Posts Grid — Other 3 Projects -->
-							<section class="posts">
+						<!-- Projects Grid -->
+							<section class="posts" id="projects">
 
 								<!-- Excel Project -->
 								<article>
 									<header>
-										<span class="date">Excel &nbsp;|&nbsp; Dashboard</span>
+										<span class="project-tag">Excel &nbsp;·&nbsp; Dashboard</span>
 										<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank">Bike Buyers<br />Sales Dashboard</a></h2>
 									</header>
-									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank" class="image fit"><img src="images/pic02.jpg" alt="Excel Bike Buyers Dashboard" /></a>
-									<p>Analyzed 1,000 customer records to identify who buys bikes and why. Cleaned abbreviated raw data using Find &amp; Replace, engineered an <strong>Age Bracket</strong> column with nested IF formulas, then built an interactive dashboard with <strong>Pivot Tables, charts, and slicers</strong> for Marital Status, Region, and Education filters.</p>
+									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank" class="image fit">
+										<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Excel charts and analytics dashboard" />
+									</a>
+									<p>Analyzed 1,000 customer records to find who buys bikes and why. Cleaned raw abbreviated data, engineered an <strong>Age Bracket</strong> column with nested IF formulas, then built an interactive dashboard with Pivot Tables, charts, and slicers.</p>
 									<ul class="actions special">
 										<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank" class="button">View Project</a></li>
 									</ul>
@@ -84,11 +107,13 @@
 								<!-- Tableau Project -->
 								<article>
 									<header>
-										<span class="date">Tableau &nbsp;|&nbsp; Interactive Dashboard</span>
+										<span class="project-tag">Tableau &nbsp;·&nbsp; Interactive Dashboard</span>
 										<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank">Seattle AirBnB<br />Market Dashboard</a></h2>
 									</header>
-									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank" class="image fit"><img src="images/pic03.jpg" alt="Tableau AirBnB Dashboard" /></a>
-									<p>Explored 3,818 Seattle AirBnB listings across 3 connected data sources — Listings, Reviews, and a 1M-row Calendar. Built an interactive dashboard with a <strong>zipcode price map</strong>, bedroom pricing chart, weekly revenue trends, and neighbourhood breakdowns using calculated fields and LOD expressions.</p>
+									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank" class="image fit">
+										<img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80" alt="Seattle city aerial view" />
+									</a>
+									<p>Explored 3,818 Seattle AirBnB listings across 3 data sources. Built an interactive dashboard with a <strong>zipcode price map</strong>, bedroom pricing chart, weekly revenue trends, and neighbourhood breakdowns using LOD expressions.</p>
 									<ul class="actions special">
 										<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank" class="button">View Project</a></li>
 									</ul>
@@ -97,11 +122,13 @@
 								<!-- Power BI Project -->
 								<article>
 									<header>
-										<span class="date">Power BI &nbsp;|&nbsp; Survey Dashboard</span>
+										<span class="project-tag">Power BI &nbsp;·&nbsp; Survey Dashboard</span>
 										<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank">Data Professional<br />Survey Dashboard</a></h2>
 									</header>
-									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank" class="image fit"><img src="images/pic04.jpg" alt="Power BI Survey Dashboard" /></a>
-									<p>Analyzed a real-world survey of 630 data professionals. Used <strong>Power Query</strong> to convert salary ranges to numeric midpoints and clean open-ended responses. Built a dashboard with treemaps, gauge charts, and bar charts to reveal that salary happiness averages just <strong>4.27/10</strong> and 59% of respondents switched careers into data.</p>
+									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank" class="image fit">
+										<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Survey analytics and charts" />
+									</a>
+									<p>Analyzed a real-world survey of 630 data professionals. Used Power Query to convert salary ranges to numeric midpoints. Revealed salary happiness averages just <strong>4.27/10</strong> and 59% switched careers into data.</p>
 									<ul class="actions special">
 										<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank" class="button">View Project</a></li>
 									</ul>
@@ -110,15 +137,27 @@
 								<!-- GitHub Repo Card -->
 								<article>
 									<header>
-										<span class="date">GitHub &nbsp;|&nbsp; Full Repository</span>
+										<span class="project-tag">GitHub &nbsp;·&nbsp; Full Repository</span>
 										<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank">All Projects<br />on GitHub</a></h2>
 									</header>
-									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank" class="image fit"><img src="images/pic05.jpg" alt="GitHub Portfolio" /></a>
-									<p>View the complete Data Analysis Portfolio repository on GitHub — including all datasets, SQL scripts, Excel workbooks, the Tableau packaged workbook, and the Power BI dashboard file, each with detailed READMEs.</p>
+									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank" class="image fit">
+										<img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80" alt="GitHub code repository" />
+									</a>
+									<p>View the complete Data Analysis Portfolio on GitHub — all datasets, SQL scripts, Excel workbooks, Tableau packaged workbook, and Power BI dashboard file, each with detailed READMEs explaining the full analysis.</p>
 									<ul class="actions special">
 										<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank" class="button">View on GitHub</a></li>
 									</ul>
 								</article>
+
+								<!--
+									========================================
+									TO ADD A NEW PROJECT:
+									Copy one <article>...</article> block above,
+									paste it here before this comment,
+									and update the tag, title, image, description and link.
+									The grid auto-adjusts — no other changes needed.
+									========================================
+								-->
 
 							</section>
 
@@ -140,10 +179,10 @@
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="mailto:vishnuvardhan999@github.com">vishnuvardhan999@github.com</a></p>
+								<p><a href="mailto:balapuvishnu@gmail.com">balapuvishnu@gmail.com</a></p>
 							</section>
 							<section>
-								<h3>Social</h3>
+								<h3>Connect</h3>
 								<ul class="icons alt">
 									<li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
@@ -153,10 +192,7 @@
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul>
-							<li>&copy; Vishnu Vardhan</li>
-							<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-						</ul>
+						<ul><li>&copy; Vishnu Vardhan</li></ul>
 					</div>
 
 			</div>
