@@ -54,6 +54,7 @@ BASE = dict(
     yaxis=dict(gridcolor=BORDER, linecolor=BORDER, zerolinecolor=BORDER),
     legend=dict(bgcolor="rgba(0,0,0,0)"),
 )
+BASE_LAYOUT = BASE  # alias used throughout charts
 CORR_BASE = {k: v for k, v in BASE.items() if k not in ("xaxis", "yaxis")}
 
 # ─────────────────────────────────────────────────────────────────────────────
