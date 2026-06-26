@@ -1,210 +1,551 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-	Customized for Vishnu Vardhan's Data Analysis Portfolio
--->
-<html>
-	<head>
-		<title>Vishnu Vardhan | Data Analyst Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="Data Analyst Portfolio of Vishnu Vardhan — SQL, Excel, Tableau, Power BI projects." />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			/* Projects section smooth scroll target */
-			#projects { scroll-margin-top: 4em; }
+<html lang="en">
+<head>
+  <title>Balapu Vishnu Vardhan | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="description" content="Portfolio of Balapu Vishnu Vardhan — CS undergrad, Data Analyst, Full Stack Developer." />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    /* ── SECTION ANCHORS ── */
+    #about, #skills, #experience, #data-analysis, #projects, #certifications, #contact {
+      scroll-margin-top: 4em;
+    }
 
-			/* Tag badges on project cards */
-			.project-tag {
-				display: inline-block;
-				background: #f56a6a;
-				color: #fff;
-				font-size: 0.65em;
-				font-weight: 700;
-				letter-spacing: 0.1em;
-				text-transform: uppercase;
-				padding: 0.25em 0.75em;
-				border-radius: 2em;
-				margin-bottom: 0.6em;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+    /* ── SKILL TAGS ── */
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5em; margin: 0.5em 0 1.2em; list-style: none; padding: 0; }
+    .skill-tags li {
+      background: #f56a6a; color: #fff;
+      font-size: 0.72em; font-weight: 700; letter-spacing: 0.08em;
+      padding: 0.3em 0.9em; border-radius: 2em;
+    }
+    .skill-tags li.blue   { background: #4a90d9; }
+    .skill-tags li.green  { background: #27ae60; }
+    .skill-tags li.purple { background: #8e44ad; }
+    .skill-tags li.orange { background: #e67e22; }
+    .skill-tags li.teal   { background: #16a085; }
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+    /* ── TIMELINE ── */
+    .timeline { border-left: 3px solid #f56a6a; padding-left: 1.5em; margin: 1em 0; }
+    .timeline-item { margin-bottom: 1.5em; position: relative; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -1.85em; top: 0.35em;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: #f56a6a; border: 2px solid #fff;
+    }
+    .timeline-item h4 { margin: 0 0 0.1em; font-size: 1em; color: #333; }
+    .timeline-item .meta { font-size: 0.78em; color: #888; margin-bottom: 0.4em; }
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Vishnu Vardhan<br />
-						Data Analyst</h1>
-						<p>A passionate data analyst skilled in SQL, Excel, Tableau, and Power BI.<br />
-						I turn raw data into clear, actionable insights through clean analysis and compelling visualizations.</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">View My Work</a></li>
-						</ul>
-					</div>
+    /* ── PROJECT CARD TAG ── */
+    .project-tag {
+      display: inline-block; background: #f56a6a; color: #fff;
+      font-size: 0.65em; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.25em 0.75em;
+      border-radius: 2em; margin-bottom: 0.6em;
+    }
+    .project-tag.blue   { background: #4a90d9; }
+    .project-tag.green  { background: #27ae60; }
+    .project-tag.purple { background: #8e44ad; }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Vishnu Vardhan</a>
-					</header>
+    /* ── ADD PROJECT PANEL ── */
+    #add-project-panel {
+      background: #1d1d1d; border: 2px dashed #f56a6a;
+      border-radius: 8px; padding: 1.5em; margin: 2em 0;
+    }
+    #add-project-panel h3 { color: #f56a6a; margin-bottom: 1em; }
+    #add-project-panel input,
+    #add-project-panel select,
+    #add-project-panel textarea {
+      width: 100%; padding: 0.6em 0.8em; margin-bottom: 0.8em;
+      background: #111; border: 1px solid #444; color: #fff;
+      border-radius: 4px; font-size: 0.9em; box-sizing: border-box;
+    }
+    #add-project-panel label { color: #aaa; font-size: 0.85em; display: block; margin-bottom: 0.2em; }
+    #add-project-panel .btn-row { display: flex; gap: 1em; margin-top: 0.5em; }
+    #toggle-panel-btn { cursor: pointer; }
+    #saved-note { color: #27ae60; font-size: 0.85em; margin-top: 0.5em; display: none; }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="#projects" class="scrolly">Projects</a></li>
-							<li><a href="#footer" class="scrolly">Contact</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+    /* ── CERT BADGES ── */
+    .cert-list { list-style: none; padding: 0; }
+    .cert-list li {
+      padding: 0.6em 1em; margin-bottom: 0.5em;
+      background: rgba(245,106,106,0.08); border-left: 3px solid #f56a6a;
+      border-radius: 0 4px 4px 0; font-size: 0.9em;
+    }
 
-				<!-- Main -->
-					<div id="main">
+    /* ── STATS ROW ── */
+    .stats-row { display: flex; flex-wrap: wrap; gap: 1em; margin: 1.5em 0; }
+    .stat-box {
+      flex: 1 1 120px; background: rgba(245,106,106,0.1);
+      border: 1px solid rgba(245,106,106,0.3); border-radius: 6px;
+      padding: 1em; text-align: center;
+    }
+    .stat-box .num { font-size: 1.8em; font-weight: 700; color: #f56a6a; display: block; }
+    .stat-box .lbl { font-size: 0.75em; color: #888; text-transform: uppercase; letter-spacing: 0.08em; }
 
-						<!-- Featured Post — SQL Project -->
-							<article class="post featured">
-								<header class="major">
-									<span class="project-tag">SQL &nbsp;·&nbsp; Data Cleaning &amp; EDA</span>
-									<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank">Tech Layoffs<br />Data Cleaning &amp; Analysis</a></h2>
-									<p>Cleaned and analyzed a real-world dataset of global tech company layoffs using MySQL.<br />
-									Removed duplicates with <strong>ROW_NUMBER()</strong>, standardized messy fields, filled NULLs via self-joins,<br />
-									then ran exploratory analysis using CTEs, window functions, and <strong>DENSE_RANK()</strong><br />
-									to surface the top companies and monthly rolling totals.</p>
-								</header>
-								<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank" class="image main">
-									<img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=1200&q=80" alt="SQL Data Cleaning — rows of data on screen" />
-								</a>
-								<ul class="actions special">
-									<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank" class="button large">View Project</a></li>
-								</ul>
-							</article>
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display: inline-block; background: rgba(245,106,106,0.15);
+      color: #f56a6a; font-size: 0.7em; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.3em 0.9em; border-radius: 2em; margin-bottom: 0.8em;
+    }
+  </style>
+</head>
+<body class="is-preload">
+<div id="wrapper" class="fade-in">
 
-						<!-- Projects Grid -->
-							<section class="posts" id="projects">
+  <!-- ══ INTRO ══ -->
+  <div id="intro">
+    <h1>Balapu Vishnu Vardhan</h1>
+    <p>CS Undergrad &nbsp;·&nbsp; Data Analyst &nbsp;·&nbsp; Full Stack Developer<br/>
+    CGPA 9.3 &nbsp;|&nbsp; Vel Tech University &nbsp;|&nbsp; Graduating 2026</p>
+    <ul class="actions">
+      <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Explore</a></li>
+    </ul>
+  </div>
 
-								<!-- Excel Project -->
-								<article>
-									<header>
-										<span class="project-tag">Excel &nbsp;·&nbsp; Dashboard</span>
-										<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank">Bike Buyers<br />Sales Dashboard</a></h2>
-									</header>
-									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank" class="image fit">
-										<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Excel charts and analytics dashboard" />
-									</a>
-									<p>Analyzed 1,000 customer records to find who buys bikes and why. Cleaned raw abbreviated data, engineered an <strong>Age Bracket</strong> column with nested IF formulas, then built an interactive dashboard with Pivot Tables, charts, and slicers.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank" class="button">View Project</a></li>
-									</ul>
-								</article>
+  <!-- ══ HEADER ══ -->
+  <header id="header">
+    <a href="index.html" class="logo">Vishnu Vardhan</a>
+  </header>
 
-								<!-- Tableau Project -->
-								<article>
-									<header>
-										<span class="project-tag">Tableau &nbsp;·&nbsp; Interactive Dashboard</span>
-										<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank">Seattle AirBnB<br />Market Dashboard</a></h2>
-									</header>
-									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank" class="image fit">
-										<img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80" alt="Seattle city aerial view" />
-									</a>
-									<p>Explored 3,818 Seattle AirBnB listings across 3 data sources. Built an interactive dashboard with a <strong>zipcode price map</strong>, bedroom pricing chart, weekly revenue trends, and neighbourhood breakdowns using LOD expressions.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank" class="button">View Project</a></li>
-									</ul>
-								</article>
+  <!-- ══ NAV ══ -->
+  <nav id="nav">
+    <ul class="links">
+      <li class="active"><a href="#header">Home</a></li>
+      <li><a href="#about"         class="scrolly">About</a></li>
+      <li><a href="#skills"        class="scrolly">Skills</a></li>
+      <li><a href="#data-analysis" class="scrolly">Data Analysis</a></li>
+      <li><a href="#projects"      class="scrolly">Dev Projects</a></li>
+      <li><a href="#contact"       class="scrolly">Contact</a></li>
+    </ul>
+    <ul class="icons">
+      <li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+      <li><a href="mailto:balapuvishnu@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+    </ul>
+  </nav>
 
-								<!-- Power BI Project -->
-								<article>
-									<header>
-										<span class="project-tag">Power BI &nbsp;·&nbsp; Survey Dashboard</span>
-										<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank">Data Professional<br />Survey Dashboard</a></h2>
-									</header>
-									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank" class="image fit">
-										<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Survey analytics and charts" />
-									</a>
-									<p>Analyzed a real-world survey of 630 data professionals. Used Power Query to convert salary ranges to numeric midpoints. Revealed salary happiness averages just <strong>4.27/10</strong> and 59% switched careers into data.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank" class="button">View Project</a></li>
-									</ul>
-								</article>
+  <div id="main">
 
-								<!-- GitHub Repo Card -->
-								<article>
-									<header>
-										<span class="project-tag">GitHub &nbsp;·&nbsp; Full Repository</span>
-										<h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank">All Projects<br />on GitHub</a></h2>
-									</header>
-									<a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank" class="image fit">
-										<img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80" alt="GitHub code repository" />
-									</a>
-									<p>View the complete Data Analysis Portfolio on GitHub — all datasets, SQL scripts, Excel workbooks, Tableau packaged workbook, and Power BI dashboard file, each with detailed READMEs explaining the full analysis.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank" class="button">View on GitHub</a></li>
-									</ul>
-								</article>
+    <!-- ══ ABOUT ══ -->
+    <article class="post featured" id="about">
+      <header class="major">
+        <span class="section-label">About Me</span>
+        <h2>Balapu Vishnu Vardhan</h2>
+        <p>Dedicated and adaptable Computer Science undergraduate with a robust foundation in
+        software development, data analysis, and problem-solving. Committed to continuous
+        learning and delivering innovative, efficient solutions. Quick learner with a proven
+        ability to collaborate effectively and contribute to impactful projects.</p>
+      </header>
+      <div class="stats-row">
+        <div class="stat-box"><span class="num">9.3</span><span class="lbl">CGPA / 10</span></div>
+        <div class="stat-box"><span class="num">4+</span><span class="lbl">Dev Projects</span></div>
+        <div class="stat-box"><span class="num">4+</span><span class="lbl">DA Projects</span></div>
+        <div class="stat-box"><span class="num">4</span><span class="lbl">Certifications</span></div>
+        <div class="stat-box"><span class="num">2026</span><span class="lbl">Graduating</span></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>B.Tech — Computer Science &amp; Engineering</h4>
+          <div class="meta">Vel Tech Rangarajan Dr. Sagunthala R&amp;D Institute &nbsp;|&nbsp; 2022 – 2026 &nbsp;|&nbsp; CGPA: 9.3/10</div>
+        </div>
+        <div class="timeline-item">
+          <h4>Intermediate (MPC)</h4>
+          <div class="meta">Sri Nalanda Junior College &nbsp;|&nbsp; 2020 – 2022 &nbsp;|&nbsp; 90%</div>
+        </div>
+        <div class="timeline-item">
+          <h4>SSC</h4>
+          <div class="meta">Sri Sai Vidyalaya &nbsp;|&nbsp; 2020 &nbsp;|&nbsp; 96%</div>
+        </div>
+      </div>
+      <ul class="actions special">
+        <li><a href="mailto:balapuvishnu@gmail.com" class="button large">Get In Touch</a></li>
+        <li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="button large">GitHub Profile</a></li>
+      </ul>
+    </article>
 
-								<!--
-									========================================
-									TO ADD A NEW PROJECT:
-									Copy one <article>...</article> block above,
-									paste it here before this comment,
-									and update the tag, title, image, description and link.
-									The grid auto-adjusts — no other changes needed.
-									========================================
-								-->
 
-							</section>
+    <!-- ══ SKILLS ══ -->
+    <section id="skills" style="margin-bottom:3em;">
+      <span class="section-label">Technical Skills</span>
+      <h2 style="margin-top:0.3em;">What I Work With</h2>
 
-					</div>
+      <h4 style="margin-bottom:0.3em;">Languages</h4>
+      <ul class="skill-tags">
+        <li class="blue">Java</li><li class="blue">Python</li><li class="blue">JavaScript</li>
+      </ul>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<h2>About Me</h2>
-							<p>I'm Vishnu Vardhan, a data analyst with hands-on experience in SQL, Excel, Tableau, and Power BI. I enjoy digging into messy datasets and building clean visualizations that tell a clear story. This portfolio showcases projects covering data cleaning, exploratory analysis, and interactive dashboards.</p>
-							<ul class="actions">
-								<li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="button">My GitHub Profile</a></li>
-							</ul>
-						</section>
-						<section class="split contact">
-							<section>
-								<h3>Skills</h3>
-								<p>SQL &bull; MySQL &bull; Excel &bull; Tableau &bull; Power BI &bull; Power Query &bull; DAX &bull; Data Cleaning &bull; EDA &bull; Dashboard Design</p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="mailto:balapuvishnu@gmail.com">balapuvishnu@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Connect</h3>
-								<ul class="icons alt">
-									<li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+      <h4 style="margin-bottom:0.3em;">Data Analysis &amp; Visualization</h4>
+      <ul class="skill-tags">
+        <li>MySQL</li><li>Microsoft Excel</li><li>Tableau</li><li>Power BI</li>
+        <li class="teal">NumPy</li><li class="teal">Pandas</li><li class="teal">Matplotlib</li>
+      </ul>
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Vishnu Vardhan</li></ul>
-					</div>
+      <h4 style="margin-bottom:0.3em;">Web Technologies</h4>
+      <ul class="skill-tags">
+        <li class="orange">HTML</li><li class="orange">CSS</li><li class="orange">React</li>
+        <li class="orange">Angular</li><li class="orange">Node.js</li>
+        <li class="orange">Express.js</li><li class="orange">REST APIs</li>
+      </ul>
 
-			</div>
+      <h4 style="margin-bottom:0.3em;">Databases</h4>
+      <ul class="skill-tags">
+        <li class="purple">MySQL</li><li class="purple">MongoDB</li>
+      </ul>
+    </section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 
-	</body>
+    <!-- ══ INTERNSHIP ══ -->
+    <section id="experience" style="margin-bottom:3em;">
+      <span class="section-label">Experience</span>
+      <h2 style="margin-top:0.3em;">Internship</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Frontend Developer Intern — CodeAlpha, Chennai</h4>
+          <div class="meta">Internship &nbsp;|&nbsp; Web Development</div>
+          <p style="margin:0.5em 0 0.3em;"><strong>Online Portfolio Builder</strong></p>
+          <ul style="margin:0 0 0.6em 1.2em; font-size:0.9em;">
+            <li>Built a responsive portfolio builder using HTML, CSS &amp; JavaScript, cutting setup time by <strong>70%</strong>.</li>
+            <li>Implemented responsive layouts across 5+ screen sizes for seamless desktop and mobile access.</li>
+          </ul>
+          <p style="margin:0.3em 0;"><strong>Expense Tracker Web App</strong></p>
+          <ul style="margin:0 0 0 1.2em; font-size:0.9em;">
+            <li>Developed a budget management app supporting expense logging across <strong>10 spending categories</strong>.</li>
+            <li>Integrated 3 interactive chart types (bar, pie, trend line) to visualize spending patterns.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ DATA ANALYSIS SECTION ══ -->
+    <section id="data-analysis" style="margin-bottom:1em;">
+      <span class="section-label">Data Analysis</span>
+      <h2 style="margin-top:0.3em;">Data Analysis Projects</h2>
+      <p>End-to-end data projects spanning SQL, Excel, Tableau, and Power BI — each with a detailed README on GitHub.</p>
+      <ul class="actions" style="margin-bottom:1.5em;">
+        <li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio" target="_blank" class="button primary">View Full Portfolio on GitHub</a></li>
+      </ul>
+    </section>
+
+    <section class="posts" id="da-projects-grid">
+
+      <!-- DA 1: SQL -->
+      <article>
+        <header>
+          <span class="project-tag">SQL &nbsp;·&nbsp; Data Cleaning &amp; EDA</span>
+          <h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank">Tech Layoffs<br/>Data Cleaning &amp; Analysis</a></h2>
+        </header>
+        <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank" class="image fit">
+          <img src="images/sql-preview.svg" alt="SQL Tech Layoffs Dashboard" />
+        </a>
+        <p>Cleaned 1,000+ rows of global tech layoff data in MySQL. Used <strong>ROW_NUMBER()</strong> for deduplication, self-joins for NULL fills, and CTEs + <strong>DENSE_RANK()</strong> for rolling totals and top-5 yearly rankings.</p>
+        <ul class="actions special">
+          <li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/sql" target="_blank" class="button">View on GitHub</a></li>
+        </ul>
+      </article>
+
+      <!-- DA 2: Excel -->
+      <article>
+        <header>
+          <span class="project-tag green">Excel &nbsp;·&nbsp; Dashboard</span>
+          <h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank">Bike Buyers<br/>Sales Dashboard</a></h2>
+        </header>
+        <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank" class="image fit">
+          <img src="images/excel-preview.svg" alt="Excel Bike Buyers Dashboard" />
+        </a>
+        <p>Analyzed 1,000 customer records to identify bike purchase behavior. Cleaned abbreviated data, engineered <strong>Age Bracket</strong> with nested IFs, and built an interactive dashboard with Pivot Tables, charts, and slicers.</p>
+        <ul class="actions special">
+          <li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/excel" target="_blank" class="button">View on GitHub</a></li>
+        </ul>
+      </article>
+
+      <!-- DA 3: Tableau -->
+      <article>
+        <header>
+          <span class="project-tag blue">Tableau &nbsp;·&nbsp; Interactive Dashboard</span>
+          <h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank">Seattle AirBnB<br/>Market Dashboard</a></h2>
+        </header>
+        <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank" class="image fit">
+          <img src="images/tableau-preview.svg" alt="Tableau Seattle AirBnB Dashboard" />
+        </a>
+        <p>Explored 3,818 listings across 3 data sources (Listings, Reviews, 1M-row Calendar). Built an interactive dashboard with a <strong>zipcode price map</strong>, bedroom pricing chart, weekly revenue trends and LOD expressions.</p>
+        <ul class="actions special">
+          <li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/tableau" target="_blank" class="button">View on GitHub</a></li>
+        </ul>
+      </article>
+
+      <!-- DA 4: Power BI -->
+      <article>
+        <header>
+          <span class="project-tag purple">Power BI &nbsp;·&nbsp; Survey Dashboard</span>
+          <h2><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank">Data Professional<br/>Survey Dashboard</a></h2>
+        </header>
+        <a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank" class="image fit">
+          <img src="images/powerbi-preview.svg" alt="Power BI Survey Dashboard" />
+        </a>
+        <p>Analyzed a 630-respondent survey of data professionals. Used <strong>Power Query</strong> to convert salary ranges to midpoints. Revealed salary happiness of just <strong>4.27/10</strong> and 59% are career switchers.</p>
+        <ul class="actions special">
+          <li><a href="https://github.com/vishnuvardhan999-hub/Data-Analysis-Portfolio/tree/main/power%20bi" target="_blank" class="button">View on GitHub</a></li>
+        </ul>
+      </article>
+
+    </section><!-- end #da-projects-grid -->
+
+
+    <!-- ══ DEV PROJECTS ══ -->
+    <section id="projects" style="margin:3em 0 1em;">
+      <span class="section-label">Development Projects</span>
+      <h2 style="margin-top:0.3em;">Software Projects</h2>
+    </section>
+
+    <section class="posts" id="dev-projects-grid">
+
+      <!-- Dev 1: House Rental -->
+      <article>
+        <header>
+          <span class="project-tag orange">Angular &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; MySQL</span>
+          <h2>Online House Rental<br/>Management System</h2>
+        </header>
+        <a class="image fit">
+          <img src="images/pic06.jpg" alt="House Rental System" />
+        </a>
+        <p>Engineered a scalable rental platform for property listings, tenant registration and booking. Architected <strong>JWT-driven access control</strong> with distinct privileges for Owners, Tenants and Admins. Developed RESTful APIs and relational MySQL schemas.</p>
+        <ul class="actions special">
+          <li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="button">View on GitHub</a></li>
+        </ul>
+      </article>
+
+      <!-- Dev 2: Chat App -->
+      <article>
+        <header>
+          <span class="project-tag blue">MERN Stack &nbsp;·&nbsp; WebSocket</span>
+          <h2>Real-Time Chat<br/>Application</h2>
+        </header>
+        <a class="image fit">
+          <img src="images/pic07.jpg" alt="Real-Time Chat App" />
+        </a>
+        <p>Crafted a high-performance messaging platform for multiple concurrent users using <strong>WebSocket</strong> for real-time delivery. Implemented JWT authentication, presence tracking, active sessions, and threaded interactions.</p>
+        <ul class="actions special">
+          <li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="button">View on GitHub</a></li>
+        </ul>
+      </article>
+
+      <!-- Dev 3: Procurement -->
+      <article>
+        <header>
+          <span class="project-tag purple">Java Full Stack &nbsp;·&nbsp; Spring Boot</span>
+          <h2>Smart Procurement &amp;<br/>Vendor Management</h2>
+        </header>
+        <a class="image fit">
+          <img src="images/pic08.jpg" alt="Procurement System" />
+        </a>
+        <p>Spearheaded procurement automation for requisitions, approvals and purchase orders. Modeled role-based workflows for employees, vendors, finance teams and admins. Built <strong>Spring Boot</strong> backend services with MySQL-driven data management.</p>
+        <ul class="actions special">
+          <li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="button">View on GitHub</a></li>
+        </ul>
+      </article>
+
+      <!-- Dev 4: Expense Tracker -->
+      <article>
+        <header>
+          <span class="project-tag green">HTML &nbsp;·&nbsp; CSS &nbsp;·&nbsp; JavaScript</span>
+          <h2>Expense Tracker<br/>Web App</h2>
+        </header>
+        <a class="image fit">
+          <img src="images/pic09.jpg" alt="Expense Tracker" />
+        </a>
+        <p>Developed a budget management app supporting expense logging across <strong>10 spending categories</strong>. Integrated 3 interactive chart types — bar, pie, and trend line — to visualize spending patterns at a glance.</p>
+        <ul class="actions special">
+          <li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="button">View on GitHub</a></li>
+        </ul>
+      </article>
+
+    </section><!-- end #dev-projects-grid -->
+
+
+    <!-- ══ CERTIFICATIONS ══ -->
+    <section id="certifications" style="margin:3em 0 3em;">
+      <span class="section-label">Certifications</span>
+      <h2 style="margin-top:0.3em;">Licenses &amp; Certifications</h2>
+      <ul class="cert-list">
+        <li>🏆 <strong>Full Stack Development</strong> — Matrimony, 2025</li>
+        <li>🏆 <strong>Java Full Stack</strong> — Wipro Talent Acquisition, 2025</li>
+        <li>🏆 <strong>Frontend Development Certification</strong> — Coursera, 2025</li>
+        <li>🏆 <strong>Java Programming Fundamentals</strong> — Infosys SpringBoard, 2024</li>
+      </ul>
+    </section>
+
+    <!-- ══ ADD PROJECT PANEL ══ -->
+    <section style="margin:2em 0 3em;">
+      <span class="section-label">Dynamic</span>
+      <h2 style="margin-top:0.3em;">Add a New Project</h2>
+      <p style="margin-bottom:0.5em;">Built something new? Add it to your portfolio directly here — no code editing needed. Projects are saved in your browser and show up instantly on the page.</p>
+
+      <button id="toggle-panel-btn" class="button" onclick="togglePanel()">+ Add New Project</button>
+
+      <div id="add-project-panel" style="display:none; margin-top:1.5em;">
+        <h3>New Project Details</h3>
+
+        <label>Project Title *</label>
+        <input type="text" id="new-title" placeholder="e.g. Customer Churn Analysis" />
+
+        <label>Section</label>
+        <select id="new-section">
+          <option value="da">Data Analysis</option>
+          <option value="dev">Development</option>
+        </select>
+
+        <label>Tag / Tech Stack *</label>
+        <input type="text" id="new-tag" placeholder="e.g. Python · Pandas · Matplotlib" />
+
+        <label>Tag Color</label>
+        <select id="new-tag-color">
+          <option value="">Red (default)</option>
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          <option value="purple">Purple</option>
+          <option value="orange">Orange</option>
+        </select>
+
+        <label>Description *</label>
+        <textarea id="new-desc" rows="3" placeholder="Brief description of what you built and the key techniques used..."></textarea>
+
+        <label>GitHub Link *</label>
+        <input type="url" id="new-link" placeholder="https://github.com/vishnuvardhan999-hub/..." />
+
+        <label>Image URL (optional — leave blank for default)</label>
+        <input type="url" id="new-img" placeholder="https://... or leave blank" />
+
+        <div class="btn-row">
+          <button class="button primary" onclick="addProject()">Add to Portfolio</button>
+          <button class="button" onclick="togglePanel()">Cancel</button>
+        </div>
+        <div id="saved-note">✅ Project added! It will appear in the grid above.</div>
+      </div>
+    </section>
+
+  </div><!-- end #main -->
+
+
+  <!-- ══ FOOTER ══ -->
+  <footer id="footer">
+    <section>
+      <h2>Let's Connect</h2>
+      <p>I'm open to internships, collaborations, and full-time roles in data analysis and software development. Feel free to reach out!</p>
+      <ul class="actions">
+        <li><a href="mailto:balapuvishnu@gmail.com" class="button primary">Send Email</a></li>
+        <li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="button">GitHub</a></li>
+      </ul>
+    </section>
+    <section id="contact" class="split contact">
+      <section>
+        <h3>Phone</h3>
+        <p><a href="tel:+919059387828">+91 9059387828</a></p>
+      </section>
+      <section>
+        <h3>Email</h3>
+        <p><a href="mailto:balapuvishnu@gmail.com">balapuvishnu@gmail.com</a></p>
+      </section>
+      <section>
+        <h3>LinkedIn</h3>
+        <p><a href="https://linkedin.com/in/balapuvishnuvardhan" target="_blank">balapuvishnuvardhan</a></p>
+      </section>
+      <section>
+        <h3>GitHub</h3>
+        <ul class="icons alt">
+          <li><a href="https://github.com/vishnuvardhan999-hub" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+      </section>
+    </section>
+  </footer>
+
+  <div id="copyright">
+    <ul><li>&copy; Balapu Vishnu Vardhan</li></ul>
+  </div>
+
+</div><!-- end #wrapper -->
+
+<!-- ══ SCRIPTS ══ -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+// ── DYNAMIC PROJECT SYSTEM ──
+
+function togglePanel() {
+  var p = document.getElementById('add-project-panel');
+  p.style.display = p.style.display === 'none' ? 'block' : 'none';
+  document.getElementById('saved-note').style.display = 'none';
+}
+
+function addProject() {
+  var title   = document.getElementById('new-title').value.trim();
+  var section = document.getElementById('new-section').value;
+  var tag     = document.getElementById('new-tag').value.trim();
+  var color   = document.getElementById('new-tag-color').value;
+  var desc    = document.getElementById('new-desc').value.trim();
+  var link    = document.getElementById('new-link').value.trim();
+  var img     = document.getElementById('new-img').value.trim() || 'images/pic05.jpg';
+
+  if (!title || !tag || !desc || !link) {
+    alert('Please fill in Title, Tag, Description and GitHub Link.');
+    return;
+  }
+
+  // Save to localStorage
+  var key = 'portfolio_projects';
+  var existing = JSON.parse(localStorage.getItem(key) || '[]');
+  existing.push({ title, section, tag, color, desc, link, img });
+  localStorage.setItem(key, JSON.stringify(existing));
+
+  // Render immediately
+  renderProject({ title, section, tag, color, desc, link, img });
+
+  // Clear form
+  ['new-title','new-tag','new-desc','new-link','new-img'].forEach(function(id){
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('saved-note').style.display = 'block';
+}
+
+function renderProject(p) {
+  var gridId = p.section === 'da' ? 'da-projects-grid' : 'dev-projects-grid';
+  var grid   = document.getElementById(gridId);
+  var tagClass = p.color ? ' ' + p.color : '';
+  var article = document.createElement('article');
+  article.innerHTML =
+    '<header>' +
+      '<span class="project-tag' + tagClass + '">' + escHtml(p.tag) + '</span>' +
+      '<h2><a href="' + escHtml(p.link) + '" target="_blank">' + escHtml(p.title) + '</a></h2>' +
+    '</header>' +
+    '<a href="' + escHtml(p.link) + '" target="_blank" class="image fit">' +
+      '<img src="' + escHtml(p.img) + '" alt="' + escHtml(p.title) + '" />' +
+    '</a>' +
+    '<p>' + escHtml(p.desc) + '</p>' +
+    '<ul class="actions special">' +
+      '<li><a href="' + escHtml(p.link) + '" target="_blank" class="button">View on GitHub</a></li>' +
+    '</ul>';
+  grid.appendChild(article);
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Load saved projects on page load
+(function loadSaved() {
+  var saved = JSON.parse(localStorage.getItem('portfolio_projects') || '[]');
+  saved.forEach(function(p){ renderProject(p); });
+})();
+</script>
+
+</body>
 </html>
